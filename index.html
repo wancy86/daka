@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>微信</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.3.css" />
+</head>
+
+<body>
+
+    <!-- 微信 -->
+    <div data-role="page" id="weixin">
+        <div data-role="header" data-position="fixed">
+            <div class="ui-grid-b">
+                <div class="ui-block-a"><span class="ui-icon-arrow-l ui-btn-icon-left" style="line-height: 46px;"></span><span>微信(5)</span></div>
+                <div class="ui-block-b"><span class="ui-icon-search ui-btn-icon-right" style="line-height: 46px;"></span></div>
+                <div class="ui-block-c"><span class="ui-icon-plus ui-btn-icon-right" style="line-height: 46px;"></span></div>
+            </div>
+        </div>
+        <div role="main" class="ui-content" data=fullscreen="true">
+            <ul data-role="listview" class="ui-listview ui-corner-all ui-shadow">
+                <li class="ui-li-static ui-body-inherit ui-li-has-thumb ui-first-child">
+                    <img src="imgs/user.jpg">
+                    <h3>Broken Bells</h3>
+                    <p>Broken Bells</p>
+                </li>
+                <li class="ui-li-static ui-body-inherit ui-li-has-thumb">
+                    <img src="imgs/user.jpg">
+                    <h3>Warning</h3>
+                    <p>Hot Chip</p>
+                </li>
+                <li class="ui-li-static ui-body-inherit ui-li-has-thumb ui-last-child">
+                    <img src="imgs/user.jpg">
+                    <h3>Wolfgang Amadeus Phoenix</h3>
+                    <p>Phoenix</p>
+                </li>
+                <li class="ui-li-static ui-body-inherit ui-li-has-thumb ui-first-child">
+                    <img src="imgs/user.jpg">
+                    <h3>Broken Bells</h3>
+                    <p>Broken Bells</p>
+                </li>
+                <li class="ui-li-static ui-body-inherit ui-li-has-thumb">
+                    <img src="imgs/user.jpg">
+                    <h3>Warning</h3>
+                    <p>Hot Chip</p>
+                </li>
+                <li class="ui-li-static ui-body-inherit ui-li-has-thumb ui-last-child">
+                    <img src="imgs/user.jpg">
+                    <h3>Wolfgang Amadeus Phoenix</h3>
+                    <p>Phoenix</p>
+                </li>
+            </ul>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#" data-icon="comment" class="ui-btn-active" onclick="topage('weixin')">微信</a></li>
+                    <li><a href="#" data-icon="bullets" onclick="topage('contacts')">通讯录</a></li>
+                    <li><a href="#" data-icon="eye" onclick="topage('faxian')">发现</a></li>
+                    <li><a href="#" data-icon="user" onclick="topage('wo')">我</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 通讯录 -->
+    <div data-role="page" id="contacts">
+        <div data-role="header" data-position="fixed">
+            <h1 class="ui-icon-arrow-l ui-btn-icon-left">通讯录</h1>
+        </div>
+        <div role="main" class="ui-content">
+            <ul data-role="listview" class="ui-listview ui-corner-all ui-shadow">
+                <li class="ui-li-static ui-body-inherit ui-li-has-thumb ui-first-child">
+                    <img src="imgs/user.jpg">
+                    <h3>Broken Bells</h3>
+                    <p>Broken Bells</p>
+                </li>
+                <li class="ui-li-static ui-body-inherit ui-li-has-thumb">
+                    <img src="imgs/user.jpg">
+                    <h3>Warning</h3>
+                    <p>Hot Chip</p>
+                </li>
+                <li class="ui-li-static ui-body-inherit ui-li-has-thumb ui-last-child">
+                    <img src="imgs/user.jpg">
+                    <h3>Wolfgang Amadeus Phoenix</h3>
+                    <p>Phoenix</p>
+                </li>
+                <li class="ui-li-static ui-body-inherit ui-li-has-thumb ui-first-child">
+                    <img src="imgs/user.jpg">
+                    <h3>Broken Bells</h3>
+                    <p>Broken Bells</p>
+                </li>
+                <li class="ui-li-static ui-body-inherit ui-li-has-thumb">
+                    <img src="imgs/user.jpg">
+                    <h3>Warning</h3>
+                    <p>Hot Chip</p>
+                </li>
+                <li class="ui-li-static ui-body-inherit ui-li-has-thumb ui-last-child">
+                    <img src="imgs/user.jpg">
+                    <h3>Wolfgang Amadeus Phoenix</h3>
+                    <p>Phoenix</p>
+                </li>
+            </ul>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#" data-icon="comment" onclick="topage('weixin')">微信</a></li>
+                    <li><a href="#" data-icon="bullets" class="ui-btn-active" onclick="topage('contacts')">通讯录</a></li>
+                    <li><a href="#" data-icon="eye" onclick="topage('faxian')">发现</a></li>
+                    <li><a href="#" data-icon="user" onclick="topage('wo')">我</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 发现 -->
+    <div data-role="page" id="faxian">
+        <div data-role="header" data-position="fixed">
+            <h1 class="ui-icon-arrow-l ui-btn-icon-left">发现</h1>
+        </div>
+        <div role="main" class="ui-content">
+            <ul data-role="listview" class="ui-listview ui-corner-all ui-shadow">
+                <li class="ui-li-static ui-body-inherit ui-li-has-thumb ui-first-child">
+                    <img src="imgs/user.jpg">
+                    <h3>Broken Bells</h3>
+                    <p>Broken Bells</p>
+                </li>
+                <li class="ui-li-static ui-body-inherit ui-li-has-thumb">
+                    <img src="imgs/user.jpg">
+                    <h3>Warning</h3>
+                    <p>Hot Chip</p>
+                </li>
+                <li class="ui-li-static ui-body-inherit ui-li-has-thumb ui-last-child">
+                    <img src="imgs/user.jpg">
+                    <h3>Wolfgang Amadeus Phoenix</h3>
+                    <p>Phoenix</p>
+                </li>
+                <li class="ui-li-static ui-body-inherit ui-li-has-thumb ui-first-child">
+                    <img src="imgs/user.jpg">
+                    <h3>Broken Bells</h3>
+                    <p>Broken Bells</p>
+                </li>
+                <li class="ui-li-static ui-body-inherit ui-li-has-thumb">
+                    <img src="imgs/user.jpg">
+                    <h3>Warning</h3>
+                    <p>Hot Chip</p>
+                </li>
+                <li class="ui-li-static ui-body-inherit ui-li-has-thumb ui-last-child">
+                    <img src="imgs/user.jpg">
+                    <h3>Wolfgang Amadeus Phoenix</h3>
+                    <p>Phoenix</p>
+                </li>
+            </ul>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#" data-icon="comment" onclick="topage('weixin')">微信</a></li>
+                    <li><a href="#" data-icon="bullets" onclick="topage('contacts')">通讯录</a></li>
+                    <li><a href="#" data-icon="eye" class="ui-btn-active" onclick="topage('faxian')">发现</a></li>
+                    <li><a href="#" data-icon="user" onclick="topage('wo')">我</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 我 -->
+    <div data-role="page" id="wo">
+        <div data-role="header" data-position="fixed">
+            <h1 class="ui-icon-arrow-l ui-btn-icon-left">我</h1>
+        </div>
+        <div role="main" class="ui-content">
+            <ul data-role="listview" class="ui-listview ui-corner-all ui-shadow">
+                <li class="ui-li-static ui-body-inherit ui-li-has-thumb ui-first-child">
+                    <img src="imgs/user.jpg">
+                    <h3>Broken Bells</h3>
+                    <p>Broken Bells</p>
+                </li>
+                <li class="ui-li-static ui-body-inherit ui-li-has-thumb">
+                    <img src="imgs/user.jpg">
+                    <h3>Warning</h3>
+                    <p>Hot Chip</p>
+                </li>
+                <li class="ui-li-static ui-body-inherit ui-li-has-thumb ui-last-child">
+                    <img src="imgs/user.jpg">
+                    <h3>Wolfgang Amadeus Phoenix</h3>
+                    <p>Phoenix</p>
+                </li>
+                <li class="ui-li-static ui-body-inherit ui-li-has-thumb ui-first-child">
+                    <img src="imgs/user.jpg">
+                    <h3>Broken Bells</h3>
+                    <p>Broken Bells</p>
+                </li>
+                <li class="ui-li-static ui-body-inherit ui-li-has-thumb">
+                    <img src="imgs/user.jpg">
+                    <h3>Warning</h3>
+                    <p>Hot Chip</p>
+                </li>
+                <li class="ui-li-static ui-body-inherit ui-li-has-thumb ui-last-child">
+                    <img src="imgs/user.jpg">
+                    <h3>Wolfgang Amadeus Phoenix</h3>
+                    <p>Phoenix</p>
+                </li>
+            </ul>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#" data-icon="comment" onclick="topage('weixin')">微信</a></li>
+                    <li><a href="#" data-icon="bullets" onclick="topage('contacts')">通讯录</a></li>
+                    <li><a href="#" data-icon="eye" onclick="topage('faxian')">发现</a></li>
+                    <li><a href="#" data-icon="user" class="ui-btn-active" onclick="topage('wo')">我</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script src="js/jquery.mobile-1.4.3.js"></script>
+    <script>
+    var weixin_data = function() {
+
+        var searchButton = $(this);
+        searchButton.button("option", "disabled", true);
+        $.mobile.loading("show");
+        $.mobile.changePage("#detail");
+
+        $("#list").html("");
+        var list = $("#list");
+        var timeTables = [];
+        var train = {
+            "TrainCode": "D2295",
+            "FirstStation": "BeiJing",
+            "LastStation": "ShenZhen",
+            "UseDate": "4:30",
+            "StartTime": "2016/06/20 12:25"
+        };
+        for (var i = 0; i < 4; i++) {
+            timeTables.push(train);
+        }
+
+        var _arr = [];
+        for (var i = 0; i < timeTables.length; i++) {
+            var that = timeTables[i];
+            _arr.push('<li><a href="#" data-no="' + that["TrainCode"] + '">' +
+                '<h2>' + that["TrainCode"] + '次</h2>' +
+                '<p>' + that["FirstStation"] + ' - ' + that["LastStation"] + '</p>' +
+                '<p>用时：' + that["UseDate"] + '</p>' +
+                '<p class="ui-li-aside">' + that["StartTime"] + ' 开</p>' +
+                '</a></li>');
+        }
+
+
+        if (_arr.length > 0) {
+            list.html(_arr.join(""));
+            list.listview("refresh");
+        }
+
+        $.mobile.loading("hide");
+
+        searchButton.button("option", "disabled", false);
+
+    };
+
+    // $.mobile.loading("show");
+    // $.mobile.loading("hide");
+    // $.mobile.changePage("#detail");
+
+    var topage = function(pageid) {
+
+        $.mobile.changePage("#" + pageid);
+    }
+
+    //绑定事件
+    var bindEvent = function() {
+        $("#search-submit").on("click", weixin_data);
+        // $("#list").on("click", "a", weixin_data);        
+    };
+
+    $(document).on("pageshow", "#index", function() {
+        if (isbind) return
+        isbind = 1;
+        bindEvent();
+    });
+    </script>
+</body>
+
+</html>
