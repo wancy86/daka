@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>DaKa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.3.css" />
+</head>
+
+<body>
+    <!-- 登录 -->
+    <div data-role="page" id="login">
+        <div data-role="header" data-position="fixed">
+            <h1 class="ui-icon-lock ui-btn-icon-left">登录</h1>
+        </div>
+        <div role="main" class="ui-content">
+            <label for="user_name">用户名:</label>
+            <input type="text" name="user_name" id="user_name" placeholder="用户名" value="">
+            <label for="pwd">密码:</label>
+            <input type="password" name="pwd" id="pwd" placeholder="密码" value="">
+            <button class="ui-btn ui-corner-all" style="margin-top: 30px;" onclick="login()">登录</button>
+            <script type="text/javascript">
+            function login() {
+                $.mobile.loading("show", {
+                    textvisible: true,
+                    text: "loading..."
+                });
+                $.mobile.changePage("#daka");
+                $.mobile.loading("hide");
+            }
+            </script>
+        </div>
+    </div>
+    <!-- 打卡 -->
+    <style type="text/css">
+    .round_photo {
+        border: 4px solid #ddddde;
+        -moz-border-radius: 59px;
+        -webkit-border-radius: 59px;
+        border-radius: 59px;
+    }
+    </style>
+    <div data-role="page" id="daka">
+        <div data-role="header" data-position="fixed">
+            <h3>打卡</h3>
+        </div>
+        <div role="main" class="ui-content" data=fullscreen="true">
+            <div class="ui-grid-solo" style="text-align: center;">
+                <div class="ui-block-a">
+                    <img style="width:100px;height:100px;" class="round_photo" src="img/user.jpg">
+                </div>
+            </div>
+            <div class="ui-grid-solo" style="text-align: center;">
+                <div class="ui-block-a">
+                    <h3>CooMark</h3>
+                </div>
+            </div>
+            <div class="ui-grid-solo" style="text-align: center;">
+                <div class="ui-block-a">
+                    <button style="width:80px;height:80px;margin:3px auto;" class="ui-btn round_photo" onclick="daka()">打卡</button>
+                </div>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#" data-icon="clock" onclick="showDaka()" class="ui-btn-active">打卡</a></li>
+                    <li><a href="#" data-icon="bullets" onclick="showRecords()">记录</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 记录 -->
+    <script id="daka_jilu" type="text/html">
+        {{each list as item index}}
+        <li class="ui-li-static">
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <h3>{{index+1}} - {{name}}</h3>
+                </div>
+                <div class="ui-block-b">
+                    <h3>{{item.time}}</h3>
+                    <p>{{item.date}}</p>
+                </div>
+            </div>
+        </li>
+        {{/each}}
+    </script>
+    <div data-role="page" id="jilu">
+        <div data-role="header" data-position="fixed">
+            <h1 class="ui-icon-arrow-l ui-btn-icon-left" onclick="$.mobile.changePage('#daka')">记录</h1>
+        </div>
+        <div role="main" class="ui-content">
+            <ul data-role="listview" class="ui-listview ui-corner-all ui-shadow">
+                <li class="ui-li-static">
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">
+                            <h3>1</h3>
+                        </div>
+                        <div class="ui-block-b">
+                            <h3>07:36:26</h3>
+                            <p>2016/06/23</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#" data-icon="clock" onclick="showDaka()">打卡</a></li>
+                    <li><a href="#" data-icon="bullets" onclick="showRecords()" class="ui-btn-active">记录</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- end -->
+    <script src="js/jquery-1.11.1.js"></script>
+    <script src="js/jquery.mobile-1.4.3.js"></script>
+    <script src="js/arttemplate.js"></script>
+    <script>
+    // $.mobile.loading("show");
+    // $.mobile.loading("hide");
+    // $.mobile.changePage("#detail");.
+    function showDakaList(data) {
+        //get data list
+        var data1 = {
+            list: [{
+                time: "07:38:45",
+                date: "2016/06/23"
+            }, {
+                time: "07:38:45",
+                date: "2016/06/23"
+            }]
+        };
+        var html = template('daka_jilu', data);
+        $("#jilu ul.ui-listview").html(html);
+    }
+
+    var showDaka = function() {
+        $.mobile.changePage("#daka");
+    }
+
+    var showRecords = function(data) {
+        $.mobile.changePage("#jilu");
+        $.mobile.loading("show");
+        showDakaList(data);
+        $.mobile.loading("hide");
+    }
+
+    function daka() {
+        //ajax daka then
+        console.log('start ajax');
+        var url = "http://127.0.0.1:8080/attendence/api/daka?user_name=mark&pwd=123456";
+        $.ajax({
+            url: url,
+            method: "GET",
+            dataType:"JSONP",
+            callback:"showRecords",
+            success: function(data) {
+                console.log('ajax...');
+                showRecords(data);
+            }
+        });
+    }
+
+    // $(document).on("pageshow", "#index", function() {
+    //     if (isbind) return
+    //     isbind = 1;
+    //     bindEvent();
+    // });
+    </script>
+</body>
+
+</html>
