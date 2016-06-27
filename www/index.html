@@ -123,46 +123,41 @@
     // $.mobile.loading("show");
     // $.mobile.loading("hide");
     // $.mobile.changePage("#detail");.
-    function showDakaList(data) {
-        //get data list
-        var data1 = {
-            list: [{
-                time: "07:38:45",
-                date: "2016/06/23"
-            }, {
-                time: "07:38:45",
-                date: "2016/06/23"
-            }]
-        };
-        var html = template('daka_jilu', data);
-        $("#jilu ul.ui-listview").html(html);
-    }
 
     var showDaka = function() {
-        $.mobile.changePage("#daka");
-    }
-
-    var showRecords = function(data) {
-        $.mobile.changePage("#jilu");
-        $.mobile.loading("show");
-        showDakaList(data);
-        $.mobile.loading("hide");
+        $.mobile.changePage("#daka",{
+            transition:"slidedown"
+        });
+        // $("#daka")
     }
 
     function daka() {
         //ajax daka then
         console.log('start ajax');
-        var url = "http://127.0.0.1:8080/attendence/api/daka?user_name=mark&pwd=123456";
+        var url = "http://192.168.1.40:8080/attendence/api/daka?user_name=mark&pwd=123456";
         $.ajax({
             url: url,
             method: "GET",
-            dataType:"JSONP",
-            callback:"showRecords",
+            dataType: "JSONP",
+            callback: "showRecords",
             success: function(data) {
                 console.log('ajax...');
-                showRecords(data);
+                window.data_records = data;
+                showRecords();
             }
         });
+    }
+
+    var showRecords = function(data) {
+        if (data) {
+            window.data_records = data;
+        }
+        console.log('jsonp callback...');
+        $.mobile.changePage("#jilu");
+        $.mobile.loading("show");
+        var html = template('daka_jilu', window.data_records);
+        $("#jilu ul.ui-listview").html(html);
+        $.mobile.loading("hide");
     }
 
     // $(document).on("pageshow", "#index", function() {
